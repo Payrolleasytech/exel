@@ -2,7 +2,7 @@ import { PageLayout } from '@/util/PageLayout'
 import SectionTitle from '@/util/SectionTitle'
 import React from 'react'
 import WhyChooseUsPlaceholder from './placeholders/WhyChooseUsPlaceholder'
-import { WhyChooseusDetail } from '@/util/WhyChooseusDetail'
+import { WhyChooseusDetail } from '@/util/data/WhyChooseusDetail'
 
 export default function WhyChooseUs() {
     return (

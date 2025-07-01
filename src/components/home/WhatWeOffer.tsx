@@ -1,8 +1,8 @@
 
 import React from 'react'
-import { ServiceDetails } from '@/util/ServiceDetails';
 import SectionTitle from '@/util/SectionTitle';
 import ServicePlaceholder from '../placeholders/ServicePlaceholder';
+import { ServiceDetails } from '@/util/data/ServiceDetails';
 
 
 

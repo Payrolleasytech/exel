@@ -1,7 +1,7 @@
 import SectionTitle from '@/util/SectionTitle'
 import React from 'react'
 import HowItWorksPlaceHolder from '../placeholders/HowItWorksPlaceHolder'
-import { howItWorksData } from '@/util/HowItWorksData'
+import { howItWorksData } from '@/util/data/HowItWorksData'
 import { ButtonExel } from '../ButtonExel'
 import { PageLayout } from '@/util/PageLayout'
 

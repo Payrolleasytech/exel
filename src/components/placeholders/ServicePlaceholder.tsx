@@ -35,10 +35,11 @@ export default function ServicePlaceholder({ title, description, ctaText, icon, 
       <div className="h-full flex flex-col justify-end gap-4">
         {icon}
         
-        <div className="mt-4 block md:hidden">
+        <div className="mt-4 block md:hidden w-full">
           <ButtonExel
             variant="default"
             text={ctaText}
+            className='w-full'
           />
         </div>
       </div>

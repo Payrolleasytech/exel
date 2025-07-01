@@ -1,8 +1,9 @@
 import PayrollSolutions from '@/components/home/animation-components/PayrollSolutions';
-import { AccountingServicesDescription, PayrollSoftwareDescription, PayrollSolutionsDescription, UmbrellaServicesDescription } from './FormattedDescriptions';
+
 import PayrollSoftware from "@/components/home/animation-components/PayrollSoftware";
 import UmbrellaServices from '@/components/home/animation-components/UmbrellaServices';
 import AccountingServices from '@/components/home/animation-components/AccountingServices';
+import { PayrollSoftwareDescription, PayrollSolutionsDescription, UmbrellaServicesDescription, AccountingServicesDescription } from '../FormattedDescriptions';
 
 
 export const ServiceDetails = [

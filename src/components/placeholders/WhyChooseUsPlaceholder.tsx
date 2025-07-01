@@ -27,7 +27,7 @@ export default function WhyChooseUsPlaceholder(props: WhyChooseUsProps) {
 
                 {props.description}
             </p>
-            <a href={props.ctaLink} className="btn flex items-center hover:text-primary transition-all ease-in justify-center w-full gap-2 cursor-pointer text-blue-300">
+            <a href={props.ctaLink} className="btn flex items-center hover:text-primary transition-all ease-in justify-center w-full gap-2 cursor-pointer text-blue-400">
                 {props.ctaText}
                 <span className="material-icons"> <FaArrowRight /></span>
             </a>

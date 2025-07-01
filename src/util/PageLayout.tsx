@@ -1,1 +1,1 @@
-export const PageLayout = "px-4 md:px-8 xl:px-14 2xl:px-20 my-4 md:my-8"
+export const PageLayout = "px-4 md:px-8 xl:px-14 2xl:px-20 my-4 md:my-8 py-4"
