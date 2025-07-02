@@ -26,12 +26,12 @@ const MobileNav = () => {
             </Link>
           </li>
           <li className="list-none transform transition-transform duration-100 hover:scale-115">
-            <Link href="/" className=" hover:text-primary ">
+            <Link href="/services" className=" hover:text-primary ">
               Services
             </Link>
           </li>
           <li className="list-none transform transition-transform duration-100 hover:scale-115">
-            <Link href="/" className=" hover:text-primary">
+            <Link href="/about" className=" hover:text-primary">
               About Us
             </Link>
           </li>
@@ -41,7 +41,7 @@ const MobileNav = () => {
             </Link>
           </li>
           <li className="list-none transition-transform duration-100 hover:scale-115">
-            <Link href="/" className=" hover:text-primary">
+            <Link href="/faq" className=" hover:text-primary">
               FAQ
             </Link>
           </li>
@@ -57,7 +57,11 @@ const MobileNav = () => {
           </li>
 
           <li>
-            <Link href="/" className=" hover:text-gray-400">
+            <Link href="https://candidateportal.zcrmportals.eu/portal/CandidatePortal/crm/login.sas" 
+            className=" hover:text-gray-400"
+            target="_blank"
+            rel="noopener noreferrer"
+            >
               <ButtonExel
                 text="Log in"
                 variant={"outline"}

@@ -2,7 +2,6 @@ import { PageLayout } from '@/util/PageLayout'
 import SectionTitle from '@/util/SectionTitle'
 import TestimonialMarguee from '@/util/TestimonialMarguee'
 import React from 'react'
-// import TestimobnialsPlaceholder from '../placeholders/TestimobnialsPlaceholder'
 // import TestimonialCarousel from '@/util/TestimonialCarousel'
 
 

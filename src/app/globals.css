@@ -143,6 +143,9 @@
   ul, ol, li {
     font-family: var(--font-display);
   }
+  button {
+    font-family: var(--font-display)
+  }
 
   body {
     @apply bg-background text-foreground;

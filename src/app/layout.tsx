@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import { MotionConfig } from "motion/react";
+import { ToastContainer } from "react-toastify"
 
 
 
@@ -81,6 +82,7 @@ export default function RootLayout({
         </main>
         <Footer/>
         </MotionConfig>
+        <ToastContainer position="top-right" autoClose={4000} hideProgressBar />
       </body>
     </html>
   );

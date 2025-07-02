@@ -1,6 +1,6 @@
 import React from 'react'
 import { ButtonExel } from '../ButtonExel';
-import ItemLists from '../home/ItemLists';
+import ItemLists from '../../util/ItemLists';
 
 interface Services {
   title: string;

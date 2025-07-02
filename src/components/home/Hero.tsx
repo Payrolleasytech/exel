@@ -1,25 +1,28 @@
 import Image from 'next/image'
 import React from 'react'
 import { ButtonExel } from '../ButtonExel'
+import SubTitle from '@/util/SubTitle'
 
 export default function Hero() {
     return (
         <section className=" px-4 md:px-8 xl:px-14 2xl:px-20 grid grid-cols-1 md:grid-cols-2 h-screen gap-4">
             <div className="flex flex-col justify-center items-start gap-4 md:gap-8">
-                <h1 className="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold">
+                <h1 className="text-xl md:text-2xl lg:text-4xl 2xl:text-5xl font-bold">
                     Your One-Stop Solution for Seamless Financial Management
                 </h1>
-                <p className="text-lg">
-                    Exel Consultancy connects you to HMRC-compliant payroll software, umbrella services, and accountancy solutions; saving you time, money, and compliance headaches.
-                </p>
-                <div className='flex gap-4'>
+                <SubTitle>
+                    Exel Consultancy connects you to <span className=" font-bold"> HMRC-compliant payroll software, umbrella services, and accountancy solutions;</span> saving you time, money, and compliance headaches.
+                </SubTitle>
+                <div className='flex flex-col md:flex-row gap-4 w-full'>
                     <ButtonExel
                         text="Get a Free Consultation"
                         variant={'default'}
+                        className='w-full md:w-auto'
                     />
                     <ButtonExel
-                        text="Learn More"
+                        text="Get a Quote"
                         variant={'outline'}
+                        className='w-full md:w-auto'
                     />
                 </div>
             </div>

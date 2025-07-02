@@ -27,22 +27,22 @@ const Nav = () => {
             </Link>
           </li>
           <li className="list-none hidden lg:flex transform transition-transform duration-100 hover:scale-115">
-            <Link href="/" className=" hover:text-primary ">
+            <Link href="/services" className=" hover:text-primary ">
               Services
             </Link>
           </li>
           <li className="list-none hidden lg:flex transform transition-transform duration-100 hover:scale-115">
-            <Link href="/" className=" hover:text-primary">
+            <Link href="/about" className=" hover:text-primary">
               About Us
             </Link>
           </li>
           <li className="list-none hidden lg:flex transform transition-transform duration-100 hover:scale-115">
-            <Link href="/" className=" hover:text-primary">
+            <Link href="/blog" className=" hover:text-primary">
               Blog
             </Link>
           </li>
           <li className="list-none hidden lg:flex transition-transform duration-100 hover:scale-115">
-            <Link href="/" className=" hover:text-primary">
+            <Link href="/faq" className=" hover:text-primary">
               FAQ
             </Link>
           </li>
@@ -58,7 +58,12 @@ const Nav = () => {
           </li>
 
           <li className="hidden lg:flex">
-            <Link href="/" className=" hover:text-gray-400">
+            <Link href="https://candidateportal.zcrmportals.eu/portal/CandidatePortal/crm/login.sas" 
+            className=" hover:text-gray-400"
+            target="_blank"
+            rel="noopener noreferrer"
+            >
+              
               <ButtonExel
                 text="Log in"
                 variant={"outline"}

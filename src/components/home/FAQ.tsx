@@ -21,17 +21,19 @@ export default function FAQ() {
 
           <SectionTitle title="Experience the Exel Consultancy Difference" />
           <small className=''> Contact us now! </small>
-          <ButtonExel variant={"outline"} title='Talk to our Support Team' />
+          <ButtonExel variant={"outline"}>Talk to our Support Team</ButtonExel>
         </span>
         <span className="flex flex-col">
-          <h5 className=''> Need more info?</h5>
-          <h3 className=''> FAQs</h3>
+          <h5 className='text-[#21272A] text-lg md:text-xl font-semibold'> Need more info?</h5>
+          <h3 className='text-[#21272A] text-3xl md:text-5xl font-black'> FAQs</h3>
           <FAQPlaceholder />
+        </span>
+        <span className="flex justify-start ">
+
+          <ButtonExel variant="link" className=' justify-self-start'> Explore More FAQs</ButtonExel>
         </span>
 
       </div>
-
-
     </section>
   )
 }

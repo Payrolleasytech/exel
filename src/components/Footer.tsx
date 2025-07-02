@@ -53,14 +53,27 @@ const Footer = () => {
           <div className="flex flex-col">
             <h6 className="text-lg font-semibold mb-2"> Join Us</h6>
             <ul className="flex gap-4">
-              <li className=" list-none"> <Link href={'/services'}> <FaLinkedinIn className="text-white" />
+              <li className=" list-none"> <Link href={'https://www.linkedin.com/'}
+                target="_blank"
+                rel="noopener noreferrer"
+              > <FaLinkedinIn className="text-white" />
               </Link> </li>
-              <li className="list-none"> <Link href={'/about'}> <FaTwitter className="text-white" />
-              </Link> </li>
-              <li className="list-none"> <Link href={'/about'}> <FaFacebookF className="text-white" />
+              <li className="list-none">
+                <Link href={'https://x.com/home'}
+                  target="_blank"
+                > <FaTwitter className="text-white" />
+                </Link> </li>
+              <li className="list-none"> 
+                <Link href={'https://web.facebook.com/?_rdc=1&_rdr#'}
+                target="_blank"
+                rel="noopener noreopener"
+                > <FaFacebookF className="text-white" />
 
               </Link> </li>
-              <li className="list-none"> <Link href={'/about'}> <FaInstagram className="text-white" />
+              <li className="list-none"> <Link href={'https://www.instagram.com/'}
+              target="_blank"
+              rel="noopener noreopener"
+              > <FaInstagram className="text-white" />
 
 
               </Link> </li>

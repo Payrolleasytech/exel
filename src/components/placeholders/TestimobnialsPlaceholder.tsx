@@ -12,7 +12,7 @@ interface TestimonialsPlaceholderProps {
 export default function TestimobnialsPlaceholder(props: TestimonialsPlaceholderProps) {
     return (
         <div 
-        className='w-full max-w-sm h-80 mx-auto flex flex-col items-center justify-center gap-4 rounded-lg bg-white shadow-md p-3 md:p-6 transition-transform duration-300 hover:shadow-lg transform'
+        className='w-full max-w-sm h-80 mx-auto flex flex-col items-center justify-center gap-4 rounded-lg bg-white shadow p-3 md:p-6 transition-transform duration-300 hover:shadow-lg transform'
         >
             <Image
                 src={props.src}

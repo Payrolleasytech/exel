@@ -9,11 +9,17 @@ export default function ItemLists({ items }: ItemListsProps) {
         <ul className="list-none flex flex-col gap-2">
             {items.map((item, index) => (
                 <li key={index} className="flex items-center gap-3">
-                    <span className="bg-primary rounded-full p-2"> <TiTick className='text-white' />
-                    </span>
+                    <Ticks />
                     {item}
                 </li>
             ))}
         </ul>
     )
+}
+
+
+export const Ticks = () => {
+
+    return <span className="bg-primary rounded-full p-2"> <TiTick className='text-white' />
+    </span>
 }

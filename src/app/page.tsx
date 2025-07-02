@@ -4,7 +4,8 @@ import HowitWorks from "@/components/home/HowitWorks";
 import IndusctryWeSupport from "@/components/home/IndusctryWeSupport";
 import Testimonials from "@/components/home/Testimonials";
 import WhatWeOffer from "@/components/home/WhatWeOffer";
-import WhyChooseUs from "@/components/WhyChooseUs";
+import WhyChooseUs from "@/components/home/WhyChooseUs";
+
 
 export default function Home() {
   return (
