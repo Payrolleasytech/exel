@@ -1,8 +1,8 @@
 import { PageLayout } from '@/util/PageLayout'
 import SectionTitle from '@/util/SectionTitle'
 import SubTitle from '@/util/SubTitle'
-// import TestimonialCarousel from '@/util/TestimonialCarousel'
-import TestimonialCarousels from '@/util/TestimonialCarousels'
+import TestimonialCarousel from '@/util/TestimonialCarousel'
+// import TestimonialCarousels from '@/util/TestimonialCarousels'
 // import TestimonialMarguee from '@/util/TestimonialMarguee'
 import React from 'react'
 // import TestimonialCarousel from '@/util/TestimonialCarousel'
@@ -20,8 +20,8 @@ export default function Testimonials() {
        </div>
 
       <div className="my-4 md:my-8">
-        {/* <TestimonialCarousel /> */}
-        <TestimonialCarousels />
+        <TestimonialCarousel />
+        {/* <TestimonialCarousels /> */}
         {/* <TestimonialMarguee /> */}
       </div>
 

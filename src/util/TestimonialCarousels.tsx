@@ -5,50 +5,8 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { TestimonialsDetails } from './data/TestimonialsDetails';
 
-interface Testimonial {
-  id: number;
-  name: string;
-  role: string;
-  content: string;
-  avatar: string;
-  initials: string;
-}
-
-const testimonials: Testimonial[] = [
-  {
-    id: 1,
-    name: "John D.",
-    role: "Recruitment Agency Owner",
-    content: "Excel Consultancy made payroll selection effortless. They saved us time and money with their expert guidance!",
-    avatar: "/lovable-uploads/john-avatar.jpg",
-    initials: "JD"
-  },
-  {
-    id: 2,
-    name: "Emma S.",
-    role: "Business Owner",
-    content: "Their payroll software is a game-changer! Simple to use, fully compliant, and backed by great support.",
-    avatar: "/lovable-uploads/emma-avatar.jpg",
-    initials: "ES"
-  },
-  {
-    id: 3,
-    name: "Michael R.",
-    role: "HR Director",
-    content: "Outstanding service and expertise. The team helped us streamline our entire payroll process seamlessly.",
-    avatar: "/lovable-uploads/michael-avatar.jpg",
-    initials: "MR"
-  },
-  {
-    id: 4,
-    name: "Sarah L.",
-    role: "Finance Manager",
-    content: "Professional, reliable, and incredibly knowledgeable. They transformed how we handle payroll operations.",
-    avatar: "/lovable-uploads/sarah-avatar.jpg",
-    initials: "SL"
-  }
-];
 
 const TestimonialCarousels = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -70,7 +28,7 @@ const TestimonialCarousels = () => {
     return () => window.removeEventListener('resize', updateCardsPerView);
   }, []);
 
-  const maxIndex = Math.ceil(testimonials.length / cardsPerView) - 1;
+  const maxIndex = Math.ceil(TestimonialsDetails.length / cardsPerView) - 1;
 
   const nextTestimonial = () => {
     setCurrentIndex((prevIndex) => 
@@ -90,7 +48,7 @@ const TestimonialCarousels = () => {
 
   const getVisibleTestimonials = () => {
     const startIndex = currentIndex * cardsPerView;
-    return testimonials.slice(startIndex, startIndex + cardsPerView);
+    return TestimonialsDetails.slice(startIndex, startIndex + cardsPerView);
   };
 
   const onTouchStart = (e: React.TouchEvent) => {
@@ -136,7 +94,7 @@ const TestimonialCarousels = () => {
         <Button
           variant="outline"
           size="icon"
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-200 w-12 h-12"
+          className="hidden md:flex cursor-pointer absolute left-4 top-1/2 -translate-y-1/2 z-10 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-200 w-12 h-12"
           onClick={prevTestimonial}
           aria-label="Previous testimonial"
         >
@@ -146,7 +104,7 @@ const TestimonialCarousels = () => {
         <Button
           variant="outline"
           size="icon"
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-200 w-12 h-12"
+          className=" hidden md:flex cursor-pointer absolute right-4 top-1/2 -translate-y-1/2 z-10 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-200 w-12 h-12"
           onClick={nextTestimonial}
           aria-label="Next testimonial"
         >
@@ -160,9 +118,9 @@ const TestimonialCarousels = () => {
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
-          <div className={`grid ${cardsPerView === 2 ? 'md:grid-cols-2' : 'grid-cols-1'} gap-8 px-8 transition-transform duration-300`}>
+          <div className={`grid ${cardsPerView === 2 ? 'md:grid-cols-2' : 'grid-cols-1'} gap-8 md:px-8 transition-transform duration-300`}>
             {getVisibleTestimonials().map((testimonial) => (
-              <Card key={testimonial.id} className="bg-white shadow-xl border-0">
+              <Card key={testimonial.id} className="bg-white shadow-md border-0">
                 <CardContent className="p-12 text-center">
                   {/* Avatar */}
                   <div className="flex justify-center mb-8">

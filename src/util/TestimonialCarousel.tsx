@@ -32,7 +32,7 @@ export default function TestimonialCarousel() {
         // <div className="h-full w-full p-2 mx-auto">
            <section className="flex flex-col gap-10 w-full overflow-hidden mx-auto">
 
-       <div className="h-full w-full max-w-full overflow-hidden p-2 md:p-8 mx-auto">
+       <div className="h-full w-full max-w-full overflow-hidden p-2 md:p-12 mx-auto">
         
 
             <Carousel
@@ -46,11 +46,11 @@ export default function TestimonialCarousel() {
                         TestimonialsDetails.map((detail, index) => {
                             return (
                                 <CarouselItem key={index}
-                                    className="basis-full md:basis-1/2 lg:basis-1/3 pl-2 md:pl-4 group rounded-lg cursor-pointer"
+                                    className="basis-full lg:basis-1/3 pl-2 md:pl-4 group rounded-lg cursor-pointer"
 
 
                                 >
-                                    <TestimobnialsPlaceholder src={detail.src} quote={detail.quote} name={detail.name} company={detail.company} />
+                                    <TestimobnialsPlaceholder src={detail.avatar} quote={detail.content} name={detail.name} company={detail.role} />
                                 </CarouselItem>
                             )
                         })
@@ -58,8 +58,8 @@ export default function TestimonialCarousel() {
 
 
                 </CarouselContent>
-                <CarouselPrevious className={`hidden md:block`} />
-                <CarouselNext className={`hidden md:block`} />
+                <CarouselPrevious className={`hidden md:flex cursor-pointer`} />
+                <CarouselNext className={`hidden md:flex cursor-pointer`} />
                 <CarouselPagination current={current} count={count} />
             </Carousel>
         </div>

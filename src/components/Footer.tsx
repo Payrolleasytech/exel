@@ -84,7 +84,7 @@ const Footer = () => {
         </div>
 
         <FooterDivider />
-        <div className="flex flex-col-reverse justify-normal md:flex-row md:justify-between md:items-center w-full">
+        <div className="flex flex-col-reverse justify-normal md:flex-row gap-6 md:gap-0 md:justify-between md:items-center w-full">
           <p>&copy; {new Date().getFullYear()} Excel Consultancy. All rights reserved.</p>
 
 

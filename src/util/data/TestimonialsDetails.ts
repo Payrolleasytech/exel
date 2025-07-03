@@ -1,27 +1,52 @@
 export const TestimonialsDetails = [
      {
-        src: "/icons/user2.png",
-        quote: "📢 Exel Consultancy made payroll selection effortless. They saved us time and money with their expert guidance!",
+        id: 1,
+        avatar: "/icons/user2.png",
+        content: "📢 Exel Consultancy made payroll selection effortless. They saved us time and money with their expert guidance!",
         name: "John D.",
-        company: "Recruitment Agency Owner"
+        role: "Recruitment Agency Owner",
+        initials: "JD"
+        
     },
     {
-        src: "/icons/user2.png",
-        quote: "📢 Their payroll software is a game-changer! Simple to use, fully compliant, and backed by great support.",
+        id: 2,
+        avatar: "/icons/user2.png",
+        content: "📢 Their payroll software is a game-changer! Simple to use, fully compliant, and backed by great support.",
         name: "Emma S.",
-        company: "Business Owner"
+        role: "Business Owner",
+        initials: "ES"
     },
     {
-        src: "/icons/user1.png",
-        quote: "Exel Consultancy made payroll selection effortless. They saved us time and money with their expert guidance!",
+        id:3,
+        avatar: "/icons/user1.png",
+        content: "Exel Consultancy made payroll selection effortless. They saved us time and money with their expert guidance!",
         name: "John D.",
-        company: "Recruitment Agency Owner"
+        role: "Recruitment Agency Owner",
+        initials: "JD"
     },
     {
-        src: "/icons/user2.png",
-        quote: "Their payroll software is a game-changer! Simple to use, fully compliant, and backed by great support.",
+        id:4,
+        avatar: "/icons/user2.png",
+        content: "Their payroll software is a game-changer! Simple to use, fully compliant, and backed by great support.",
         name: "Emma S.",
-        company: "Business Owner"
+        role: "Business Owner",
+        initials: "ES"
+    },
+    {
+        id:5,
+        avatar: "/icons/user1.png",
+        content: "Exel Consultancy made payroll selection effortless. They saved us time and money with their expert guidance!",
+        name: "John D.",
+        role: "Recruitment Agency Owner",
+        initials: "JD"
+    },
+    {
+        id:5,
+        avatar: "/icons/user1.png",
+        content: "Exel Consultancy made payroll selection effortless. They saved us time and money with their expert guidance!",
+        name: "John D.",
+        role: "Recruitment Agency Owner",
+        initials: "JD"
     },
    
 ]
