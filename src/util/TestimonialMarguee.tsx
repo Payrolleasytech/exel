@@ -12,10 +12,11 @@ export default function TestimonialMarguee() {
                 return (
                      <div key={key} className='mx-2'>
                         <TestimobnialsPlaceholder 
-                        src={testimonial.src} 
-                        quote={testimonial.quote} 
+                        avatar={testimonial.avatar} 
+                        content={testimonial.content} 
                         name={testimonial.name} 
-                        company={testimonial.company}  />
+                        role={testimonial.role} 
+                        id={testimonial.id} />
                         
                       </div>
                 )

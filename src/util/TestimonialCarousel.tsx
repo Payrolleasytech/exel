@@ -50,7 +50,7 @@ export default function TestimonialCarousel() {
 
 
                                 >
-                                    <TestimobnialsPlaceholder src={detail.avatar} quote={detail.content} name={detail.name} company={detail.role} />
+                                    <TestimobnialsPlaceholder avatar={detail.avatar} content={detail.content} name={detail.name} role={detail.role} id={detail.id} />
                                 </CarouselItem>
                             )
                         })
