@@ -1,4 +1,5 @@
-import Image from 'next/image'
+import { getInitials } from '@/util/UserInitials'
+// import Image from 'next/image'
 import React from 'react'
 
 
@@ -15,15 +16,11 @@ export default function TestimobnialsPlaceholder(props: TestimonialsPlaceholderP
         <div 
         className='w-full max-w-sm h-80 mx-auto flex flex-col items-center justify-center gap-4 rounded-lg bg-white shadow p-3 md:p-6 transition-transform duration-300 hover:shadow-lg transform'
         >
-            <Image
-                src={props.avatar}
-                alt={`Testimonial from ${props.name} of ${props.role}`}
-                width={100}
-                height={100}
-                className="w-24 h-24 rounded-full justify-self-center mt-8"
-            />
+            <div className="w-20 h-20 rounded-full bg-primary text-white flex items-center justify-center">
+                {getInitials(props.name)}
+            </div>
 
-            <q className="text-center">
+            <q className="text-center text-sm">
                 {props.content}
             </q>
 

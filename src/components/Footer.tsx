@@ -1,12 +1,21 @@
+
 import Image from "next/image";
 import Link from "next/link";
-import NewsletterForm from "./NewsletterForm";
+// import NewsletterForm from "./NewsletterForm";
 import FooterDivider from "./FooterDivider";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+// import ZohoNewsletterForm from "./ZohoForm";
+// import dynamic from "next/dynamic";
+// const ZohoForm = dynamic(() => import('./ZohoForm'), {
+//   ssr: false,
+//   loading: () => <div>Loading newsletter form...</div>
+// });
+
+
 
 const Footer = () => {
   return (
-    <footer className="bg-[#274F67] text-white px-4 md:px-8 xl:px-14 2xl:px-20 py-4 pt-10">
+    <footer className="bg-[#274F67] text-white px-4 md:px-8 xl:px-14 2xl:px-20 pb-4">
       <div className=" grid  items-center w-full gap-4">
         <div className="flex flex-col md:flex-row  md:justify-between gap-4 w-full ">
           <Link href="/">
@@ -19,7 +28,11 @@ const Footer = () => {
             />
           </Link>
           <div className="">
-            <NewsletterForm />
+            {/* <NewsletterForm /> */}
+            <div className="max-w-4xl mx-auto px-4">
+        {/* <h2 className="text-xl font-semibold mb-4">Subscribe to Our Newsletter</h2> */}
+        {/* <ZohoForm /> */}
+      </div>
           </div>
         </div>
         <FooterDivider />
