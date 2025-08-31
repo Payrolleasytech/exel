@@ -1,8 +1,8 @@
-import ComingSoon from '@/components/ComingSoon'
+import AboutPage from '@/app/about/components/AboutPage'
 import React from 'react'
 
 export default function page() {
   return (
-    <ComingSoon />
+    <AboutPage />
   )
 }
