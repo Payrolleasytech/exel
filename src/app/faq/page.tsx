@@ -1,8 +1,9 @@
-import ComingSoon from '@/components/ComingSoon'
+
 import React from 'react'
+import FAQ from './FAQ'
 
 export default function page() {
   return (
-    <ComingSoon />
+    <FAQ />
   )
 }
