@@ -4,13 +4,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ButtonExel } from './ButtonExel';
 import ToggleModal from './ToggleModal';
+import { ServicesMenu } from './Services';
+
 
 const Nav = () => {
+
+
   return (
     <nav className="border-b font-montserrat 
     px-4 md:px-8 xl:px-14 2xl:px-20 py-4 bg-white shadow fixed top-0 left-0 right-0 z-50
     "
-    aria-label="Main navigation"
+      aria-label="Main navigation"
     >
       <div className="flex justify-between items-center w-full">
         <ul className='flex gap-8 items-center '>
@@ -26,22 +30,23 @@ const Nav = () => {
               />
             </Link>
           </li>
-          <li className="list-none hidden lg:flex transform transition-transform duration-100 hover:scale-115">
-            <Link href="/services" className=" hover:text-primary ">
+          {/* <li className="list-none hidden lg:flex transform transition-transform duration-100 "> */}
+            {/* <Link href="/services" className=" hover:text-primary ">
               Services
-            </Link>
-          </li>
-          <li className="list-none hidden lg:flex transform transition-transform duration-100 hover:scale-115">
+            </Link> */}
+            <ServicesMenu />
+          {/* </li> */}
+          <li className="list-none hidden lg:flex transform transition-transform duration-100 ">
             <Link href="/about" className=" hover:text-primary">
               About Us
             </Link>
           </li>
-          <li className="list-none hidden lg:flex transform transition-transform duration-100 hover:scale-115">
+          <li className="list-none hidden lg:flex transform transition-transform duration-100 ">
             <Link href="/blog" className=" hover:text-primary">
               Blog
             </Link>
           </li>
-          <li className="list-none hidden lg:flex transition-transform duration-100 hover:scale-115">
+          <li className="list-none hidden lg:flex transition-transform duration-100 ">
             <Link href="/faq" className=" hover:text-primary">
               FAQ
             </Link>
@@ -51,19 +56,19 @@ const Nav = () => {
           <li>
             <Link
               href="/about"
-              className=" hidden lg:inline-block transition-transform duration-100 hover:text-primary hover:scale-115"
+              className=" hidden lg:inline-block transition-transform duration-100 hover:text-primary "
             >
               Contact Us
             </Link>
           </li>
 
           <li className="hidden lg:flex">
-            <Link href="https://candidateportal.zcrmportals.eu/portal/CandidatePortal/crm/login.sas" 
-            className=" hover:text-gray-400"
-            target="_blank"
-            rel="noopener noreferrer"
+            <Link href="https://candidateportal.zcrmportals.eu/portal/CandidatePortal/crm/login.sas"
+              className=" hover:text-gray-400"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              
+
               <ButtonExel
                 text="Log in"
                 variant={"outline"}
@@ -83,7 +88,7 @@ const Nav = () => {
           </li>
         </ul>
         <ToggleModal />
-  
+
 
 
       </div>
