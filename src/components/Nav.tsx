@@ -55,7 +55,7 @@ const Nav = () => {
         <ul className="flex space-x-4 items-center">
           <li>
             <Link
-              href="/about"
+              href="/contact"
               className=" hidden lg:inline-block transition-transform duration-100 hover:text-primary "
             >
               Contact Us
