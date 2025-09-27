@@ -1,4 +1,3 @@
-"use client"
 
 import * as React from "react"
 import Link from "next/link"
@@ -8,19 +7,20 @@ import {
     DropdownMenuTrigger,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuSeparator,
+    // DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu"
 
-const services = [
-    { name: "Umbrella Services", href: "/services/umbrella-services" },
-    { name: "Accountancy Services", href: "/services/accountancy-services" },
-    { name: "Payroll Services", href: "/services/payroll-services" },
-    { name: "Bookkeeping Services", href: "/services/bookkeeping-services" },
-    { name: "Tax Advisory", href: "/services/tax-advisory" },
-    { name: "VAT Services", href: "/services/vat-services" },
-]
+export interface MenuItems {
+    title: string;
+    slug: string;
+    id: number
+}
+export interface MenuProps {
+    menu: MenuItems[]
+}
 
-export function ServicesMenu() {
+
+export function ServicesMenu({menu} : MenuProps) {
     const [isOpen, setIsOpen] = React.useState(false)
 
     return (
@@ -40,18 +40,19 @@ export function ServicesMenu() {
             <DropdownMenuContent
                 className="p-2 bg-white shadow-lg rounded-md border border-gray-200 mt-2"
             >
-                {services.map((service) => (
+                {menu.map((service) => (
                     <DropdownMenuItem
-                        key={service.name}
+                        key={service.title}
                         asChild
                         className="p-2 rounded-sm cursor-pointer hover:bg-primary hover:text-white focus:bg-gray-100 focus:text-gray-900"
                     >
-                        <Link href={service.href}>{service.name}</Link>
+                        <Link href={`/services/${service.slug}`}>{service.title}</Link>
+                        {/* <DropdownMenuSeparator /> */}
                     </DropdownMenuItem>
                 ))}
 
-                <DropdownMenuSeparator />
             </DropdownMenuContent>
         </DropdownMenu>
+
     )
 }

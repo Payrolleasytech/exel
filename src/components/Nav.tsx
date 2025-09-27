@@ -4,11 +4,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ButtonExel } from './ButtonExel';
 import ToggleModal from './ToggleModal';
-import { ServicesMenu } from './Services';
+// import { ServicesMenu } from './Services';
+import { getServices } from '@/services/getService';
+import { MenuItems } from './Services';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu';
+import { RxCaretDown } from "react-icons/rx";
+import { ActiveLink } from './ActiveLink';
 
 
-const Nav = () => {
+const Nav = async () => {
 
+  const menu = await getServices()
 
   return (
     <nav className="border-b font-montserrat 
@@ -30,36 +36,51 @@ const Nav = () => {
               />
             </Link>
           </li>
-          {/* <li className="list-none hidden lg:flex transform transition-transform duration-100 "> */}
-            {/* <Link href="/services" className=" hover:text-primary ">
-              Services
-            </Link> */}
-            <ServicesMenu />
-          {/* </li> */}
+
           <li className="list-none hidden lg:flex transform transition-transform duration-100 ">
-            <Link href="/about" className=" hover:text-primary">
-              About Us
-            </Link>
+            <ActiveLink href={'/services'}>
+              
+              <DropdownMenu>
+                <DropdownMenuTrigger className=" hover:text-primary flex items-center gap-2 focus:border-none ">
+                  Services <span > <RxCaretDown />
+                  </span>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+
+
+                  {menu?.data?.map((item: MenuItems) => (
+                    <DropdownMenuItem key={item.slug} asChild>
+                      <Link href={`/services/${item.slug}`}>{item.title}</Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </ActiveLink>
+           
           </li>
           <li className="list-none hidden lg:flex transform transition-transform duration-100 ">
-            <Link href="/blog" className=" hover:text-primary">
+            <ActiveLink href='/about' exact>
+             About Us
+            </ActiveLink>
+          </li>
+          <li className="list-none hidden lg:flex transform transition-transform duration-100 ">
+            <ActiveLink href="/blog" >
               Blog
-            </Link>
+            </ActiveLink>
           </li>
           <li className="list-none hidden lg:flex transition-transform duration-100 ">
-            <Link href="/faq" className=" hover:text-primary">
+            <ActiveLink href="/faq">
               FAQ
-            </Link>
+            </ActiveLink>
           </li>
         </ul>
         <ul className="flex space-x-4 items-center">
-          <li>
-            <Link
+          <li className='hidden lg:inline-block transition-transform duration-100 hover:text-primary'>
+            <ActiveLink
               href="/contact"
-              className=" hidden lg:inline-block transition-transform duration-100 hover:text-primary "
             >
               Contact Us
-            </Link>
+            </ActiveLink>
           </li>
 
           <li className="hidden lg:flex">
