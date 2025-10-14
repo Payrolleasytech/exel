@@ -14,7 +14,7 @@ items: {
 export default function ServicesFaq( { title, subtitle, items }: ServicesFaqProps) {
   return (
     <div className={`${PageLayout} grid gap-6 my-12 py-6 md:py-18 text-center mx-auto bg-[#F2F4F8]`}>
-      <h1 className='text-3xl font-bold'>{title}</h1>
+      <h1 className='text-3xl font-bold uppercase text-blue-900'>{title}</h1>
       {subtitle && <h2 className='text-lg'>{subtitle}</h2>}
       <div className="">
 

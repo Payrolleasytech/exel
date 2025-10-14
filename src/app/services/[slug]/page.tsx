@@ -14,114 +14,111 @@ import { getServiceBySlug } from '@/services/getService';
 
 
 
+
 interface ServicePageProps {
   params: { slug: string };
 }
- 
-
- 
-export async function getServices(slug: string) {
-  const res = await fetch(`http://localhost:1337/api/services?slug=${slug}`, {
-    next: { revalidate: 60}
-  });
-  if (!res.ok) return null;
-const data = await  res.json()
-return data.data;
-
-  
-}
-
-
-
 
 export default async function page({params}: ServicePageProps) {
   // const data = await getServices(params.slug);
   const service = await getServiceBySlug(params.slug)
   if (!service) return notFound();
-  console.log("Service data..." , params.slug,  service);
+  console.log("Service data..." , service);
   // const baseUrl = process.env.NEXT_STRAPI_API_URL
  return (
     <main className="mx-auto">
-      {service.Blocks?.map((block) => {
+      {service.Blocks?.map((block:any, id) => {
         switch (block.__component) {
           case "hero.hero":
             return (
               <Hero
-                key={block.id}
+                key={id}
                 title={block.title}
                 description={block.description}
-                image={`/step2.png`}
+                image={block?.featuredImage.url}
                 isPrimary={block.isPrimary}
                 cta={block.cta}
                 
               />
             );
 
-          // case "global.services-second-section":
-          //   return (
-          //     <ServicesYouCanGet
-          //       key={block.id}
-          //       title={block.title}
-          //       items={block.serviceCards?.map((c: any) => ({
-          //         title: c.title,
-          //         description: c.description,
-          //         icon: c.icon?.url,
-          //       }))}
-          //     />
-          //   );
+          case "global.services-second-section":
+            return (
+              <ServicesYouCanGet
+              key={id}
+                mainTitle={block.title}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                items={block.serviceCards?.map((c: any) => ({
+                  title: c.title,
+                  description: c.description,
+                  icon: c.icon?.url,
+                }))}
+              />
+            );
 
-          // case "global.value-card":
-          //   return (
-          //     <GetValue
-          //       key={block.id}
-          //       title={block.title}
-          //       subtitle={block.subTitle}
-          //       cta={block.cta}
-          //       items={[]} // adapt if needed
-          //     />
-          //   );
+          case "global.value-card":
+            return (
+              <GetValue
+                key={id}
+                title={block.title}
+                subtitle={block.subTitle}
+                cta={{
+                  text: block.cta.label,
+                  isPrimary: block.cta.isPrimary,
+                  link: `/`
+                }}
+                items={[]} 
+              />
+            );
 
-          // case "global.testimonial-section":
-          //   return (
-          //     <section key={block.id}>
-          //       {block.testimonialCards?.map((t: any) => (
-          //         <div key={t.id}>
-          //           <p>{t.message}</p>
-          //           <p>{t.name}</p>
-          //           <img src={t.profileImage?.url} alt={t.name} />
-          //         </div>
-          //       ))}
-          //     </section>
-          //   );
+          case "global.testimonial-section":
+            return (
+              <section key={block.id}>
+                {block.testimonialCards?.map((t: any) => (
+                  <div key={t.id}>
+                    <p>{t.message}</p>
+                    <p>{t.name}</p>
+                    <img src={t.profileImage?.url} alt={t.name} />
+                  </div>
+                ))}
+              </section>
+            );
 
-          // case "global.faq-section":
-          //   return (
-          //     <ServicesFaq
-          //       key={block.id}
-          //       title={block.faqOnService}
-          //       subtitle={block.subTitle}
-          //       items={block.faqs}
-          //     />
-          //   );
+          case "global.faq-section":
+            return (
+              <ServicesFaq
+                key={block.id}
+                title={block.subTitle}
+                subtitle={block.faqOnService}
+                items={block.faqs}
+              />
+            );
 
-          // case "global.explore-more-services-section":
-          //   return (
-          //     <ExploreMoreWays
-          //       key={block.id}
-          //       title={block.title}
-          //       items={block.exploreMoreServiceCards}
-          //     />
-          //   );
+          case "global.explore-more-services-section":
+            return (
+              <ExploreMoreWays
+                key={id}
+                title={block.title}
+                items={block.exploreMoreServiceCards}
+              />
+            );
+          case "global.how-it-works":
+            return (
+             <HowItWorks key={id} items={block.cards} />
+            );
 
-          // case "global.need-to-take-action-section":
-          //   return (
-          //     <TakeActionCard
-          //       key={block.id}
-          //       title={block.title}
-          //       description={block.description}
-          //       cta={block.cta}
-          //     />
-          //   );
+          case "global.need-to-take-action-section":
+            return (
+              <TakeActionCard
+                key={id}
+                title={block.title}
+                description={block.description}
+                cta={{
+                  link: block.cta.href,
+                  text: block.cta.label
+                }}
+              />
+            );
 
           default:
             return null; // unknown block, skip

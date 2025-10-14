@@ -32,7 +32,7 @@ export default function Hero({ title, description, isPrimary, image, cta }: Hero
                 </button>
             </div>
         </div>
-        <div className={`justify-self-end`}>
+        <div className={`justify-self-end hover:shadow-lg`}>
             <Image src={image} alt={title} width={450} height={400} className='rounded-lg shadow-lg' />
         </div>
     </div>

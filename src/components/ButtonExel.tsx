@@ -1,4 +1,4 @@
-
+import Link from "next/link";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
 import { ButtonHTMLAttributes, forwardRef } from "react";
@@ -8,12 +8,14 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-[#2E5C7A] hover:text-white",
+        default:
+          "bg-primary text-primary-foreground hover:bg-[#2E5C7A] hover:text-white",
         destructive: "bg-destructive text-white hover:bg-destructive/90",
-        outline: "border border-primary hover:bg-[#D0E1F2] hover:text-primary text-primary",
+        outline:
+          "border border-primary hover:bg-[#D0E1F2] hover:text-primary text-primary",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        form: "bg-white text-primary hover:text-primary hover:border-primary hover:outline-primary"
+        form: "bg-white text-primary hover:text-primary hover:border-primary hover:outline-primary",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -32,17 +34,34 @@ export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   text?: string;
+  href?: string;        // ✅ navigation
+  isPrimary?: boolean;  // ✅ semantic variant
 }
 
 const ButtonExel = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, text, children, ...props }, ref) => {
+  ({ className, variant, size, text, children, href, isPrimary, ...props }, ref) => {
+    // Priority: isPrimary > variant > default
+    const selectedVariant = isPrimary ? "default" : variant;
+
+    const buttonClass = clsx(
+      buttonVariants({ variant: selectedVariant, size, className })
+    );
+
+    const content = text || children;
+
+    // ✅ Render Link + <a> if href is provided
+    if (href) {
+      return (
+        <Link href={href} className={buttonClass}>
+          {content}
+        </Link>
+      );
+    }
+
+    // ✅ Otherwise render a normal <button>
     return (
-      <button
-        className={clsx(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      >
-        {text || children}
+      <button className={buttonClass} ref={ref} {...props}>
+        {content}
       </button>
     );
   }

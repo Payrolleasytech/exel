@@ -1,7 +1,8 @@
 
 
 export async function getServices() {
-  const res = await fetch("http://localhost:1337/api/services", {
+  const baseUrl = process.env.NEXT_STRAPI_API_URL
+  const res = await fetch(`${baseUrl}/api/services`, {
     next: { revalidate: 60}
   });
   if (!res.ok) return null;
@@ -18,11 +19,11 @@ return res.json();
 
 
 export async function getServiceBySlug(slug: string) {
-  const API_URL = process.env.NEXT_STRAPI_API_URL || "http://localhost:1337";
+  const baseUrl = process.env.NEXT_STRAPI_API_URL || "http://localhost:1337";
 
 
 
-  const res = await fetch(`${API_URL}/api/services/slug/${slug}`, {
+  const res = await fetch(`${baseUrl}/api/services/slug/${slug}`, {
     next: { revalidate: 60 },
   });
 
