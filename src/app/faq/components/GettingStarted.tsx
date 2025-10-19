@@ -20,7 +20,7 @@ interface CustomAccordionProps {
 
 export default function CustomAccordion({ data }: CustomAccordionProps) {
   return (
-    <Accordion type="single" collapsible className="w-full pb-2 grid gap-4 my-8 lg:my-16">
+    <Accordion type="single" collapsible className="w-full pb-2 grid gap-4 my-8 lg:my-16 px-2">
      {
        data.map((item, index) => (
          <AccordionItem key={item.id} value={`item-${item.id}`} className="w-full border rounded-md px-4 bg-white max-w-2xl mx-auto ">
