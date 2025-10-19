@@ -44,8 +44,30 @@ export default async function page({params}: ServicePageProps) {
   if (!service) return notFound();
   // console.log("Service data..." , params.slug,  service.Blocks);
   // const baseUrl = process.env.NEXT_STRAPI_API_URL
+
+   const blockOrder = [
+    "hero.hero",
+    "global.services-second-section",
+    "global.how-it-works",
+    "global.explore-more-services-section",
+    "global.value-card",
+    "global.faq-section",
+    "global.testimonies-section",
+    "global.from-our-blog-section",
+    "global.need-to-take-action-section"
+  ];
+  
+  // Sort blocks based on the defined order
+  const sortedBlocks = service.Blocks?.sort((a, b) => {
+    const indexA = blockOrder.indexOf(a.__component);
+    const indexB = blockOrder.indexOf(b.__component);
+    return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
+  });
+
+
  return (
     <main className="mx-auto">
+      
       {service.Blocks?.map((block:any) => {
         switch (block.__component) {
           case "hero.hero":

@@ -14,7 +14,7 @@ interface ExploreMoreWaysProps {
 export default function ExploreMoreWays({ title, items }: ExploreMoreWaysProps) {
   return (
     <div className={`${PageLayout} grid gap-3 md:gap-12 my-10 justify-between `}>
-    <h1 className='text-3xl font-bold'>{title}</h1>
+    <h1 className='text-3xl font-bold text-left md:text-center'>{title}</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-4  gap-4 mt-4">
           {items.map((item, index) => (
