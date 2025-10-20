@@ -3,7 +3,7 @@ import React from 'react'
 import Hero from '../components/Hero';
 import ServicesYouCanGet from '../components/ServicesYouCanGet';
 import GetValue from '../components/GetValue';
-// import HowItWorks from '../components/HowItWorks';
+import HowItWorks from '../components/HowItWorks';
 import ServicesFaq from '../components/ServicesFaq';
 import ExploreMoreWays from '../components/ExploreMoreWays';
 // import { FromBlogSection } from '../components/FromOurBlog';
@@ -55,7 +55,7 @@ export default async function page({params}: ServicePageProps) {
     "hero.hero",
     "global.services-second-section", 
     "global.value-card",
-    "how-it-works", // You'll need to update this to match your actual component name
+    "global.how-it-works", // You'll need to update this to match your actual component name
     "global.faq-section",
     "global.explore-more-services-section",
     "global.testimonial-section",
@@ -156,6 +156,10 @@ export default async function page({params}: ServicePageProps) {
           //     />
           //   );
 
+          case "global.how-it-works":
+            return (
+             <HowItWorks key={block.title} items={block.cards} />
+            );
           case "global.need-to-take-action-section":
             return (
               <TakeActionCard
