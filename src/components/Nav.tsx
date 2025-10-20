@@ -38,7 +38,7 @@ const Nav = async () => {
           </li>
 
           <li className="list-none hidden lg:flex transform transition-transform duration-100 ">
-            <ActiveLink href={'/services'}>
+            <ActiveLink href={''}>
               
               <DropdownMenu>
                 <DropdownMenuTrigger className=" hover:text-primary flex items-center gap-2 focus:border-none ">

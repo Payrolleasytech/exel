@@ -3,12 +3,12 @@ import React from 'react'
 import Hero from '../components/Hero';
 import ServicesYouCanGet from '../components/ServicesYouCanGet';
 import GetValue from '../components/GetValue';
-import HowItWorks from '../components/HowItWorks';
+// import HowItWorks from '../components/HowItWorks';
 import ServicesFaq from '../components/ServicesFaq';
 import ExploreMoreWays from '../components/ExploreMoreWays';
-import { FromBlogSection } from '../components/FromOurBlog';
+// import { FromBlogSection } from '../components/FromOurBlog';
 import TakeActionCard from '../components/TakeAction';
-import { exploreMoreWaysItems, faqItems, howItWorksItems, items } from '../components/data';
+// import { exploreMoreWaysItems, faqItems, howItWorksItems, items } from '../components/data';
 import { notFound } from 'next/navigation';
 import { getServiceBySlug } from '@/services/getService';
 
@@ -45,39 +45,146 @@ export default async function page({params}: ServicePageProps) {
   // console.log("Service data..." , params.slug,  service.Blocks);
   // const baseUrl = process.env.NEXT_STRAPI_API_URL
 
-   const blockOrder = [
+
+   const blocksByType: { [key: string]: any } = {};
+  service.Blocks?.forEach((block: any) => {
+    blocksByType[block.__component] = block;
+  });
+
+  const renderOrder = [
     "hero.hero",
-    "global.services-second-section",
-    "global.how-it-works",
-    "global.explore-more-services-section",
+    "global.services-second-section", 
     "global.value-card",
+    "how-it-works", // You'll need to update this to match your actual component name
     "global.faq-section",
-    "global.testimonies-section",
+    "global.explore-more-services-section",
+    "global.testimonial-section",
     "global.from-our-blog-section",
     "global.need-to-take-action-section"
   ];
-  
-  // Sort blocks based on the defined order
-  const sortedBlocks = service.Blocks?.sort((a, b) => {
-    const indexA = blockOrder.indexOf(a.__component);
-    const indexB = blockOrder.indexOf(b.__component);
-    return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
-  });
-
 
  return (
     <main className="mx-auto">
+       {renderOrder.map((componentType) => {
+        const block = blocksByType[componentType];
+        if (!block) return null;
+
+        switch (componentType) {
+          case "hero.hero":
+            return (
+              <Hero
+                key={block.title}
+                title={block.title}
+                description={block.description}
+                image={block?.featuredImage.url}
+                isPrimary={block.isPrimary}
+                cta={block.cta}
+                
+              />
+            );
+
+          case "global.services-second-section":
+            return (
+               <ServicesYouCanGet
+              key={block.title}
+                mainTitle={block.title}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                items={block.serviceCards?.map((c: any) => ({
+                  title: c.title,
+                  description: c.description,
+                  icon: c.icon?.url,
+                }))}
+              />
+            );
+
+          case "global.value-card":
+            return (
+              <GetValue
+                key={block.title}
+                title={block.title}
+                subtitle={block.subTitle}
+                cta={{
+                  isPrimary: true,
+                  text: block.cta.label,
+                  link: "/contact"
+
+                }}
+                items={[]}
+              />
+            );
+
+          // 
+
+          case "global.faq-section":
+            return (
+              <ServicesFaq
+                key={block.title}
+                title={block.faqOnService}
+                subtitle={block.subTitle}
+                items={block.faqs}
+              />
+            );
+
+          case "global.explore-more-services-section":
+            return (
+              <ExploreMoreWays
+                key={block.title}
+                title={block.title}
+                items={block.exploreMoreServiceCards}
+              />
+            );
+
+          // case "global.testimonial-section":
+          //   return (
+          //     <TestimonialSection
+          //       key={block.id}
+          //       testimonials={block.testimonialCards?.map((t: any) => ({
+          //         id: t.id,
+          //         message: t.message,
+          //         name: t.name,
+          //         profileImage: t.profileImage?.url,
+          //       }))}
+          //     />
+          //   );
+
+          // case "global.from-our-blog-section":
+          //   // You'll need to create this component
+          //   return (
+          //     <FromOurBlog
+          //       key={block.id}
+          //       // Add your props here based on your Strapi structure
+          //     />
+          //   );
+
+          case "global.need-to-take-action-section":
+            return (
+              <TakeActionCard
+                key={block.title}
+                title={block.title}
+                description={block.description}
+                cta={{
+                  text: block.cta.label,
+                  isPrimary: false,
+                  link: "/contact"
+                }}
+              />
+            );
+
+          default:
+            return null;
+        }
+      })}
       
-      {service.Blocks?.map((block:any) => {
+
+      {/* {service.Blocks?.map((block:any) => {
         switch (block.__component) {
           case "hero.hero":
             return (
               <Hero
                 key={block.title}
                 title={block.title}
-                // subTitle={block.subTitle}
                 description={block.description}
-                image={`/step2.png`}
+                image={block?.featuredImage.url}
                 isPrimary={block.isPrimary}
                 cta={block.cta}
                 
@@ -87,8 +194,9 @@ export default async function page({params}: ServicePageProps) {
           case "global.services-second-section":
             return (
               <ServicesYouCanGet
-                key={block.title}
+              key={block.title}
                 mainTitle={block.title}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 items={block.serviceCards?.map((c: any) => ({
                   title: c.title,
                   description: c.description,
@@ -162,7 +270,7 @@ export default async function page({params}: ServicePageProps) {
           default:
             return null;
         }
-      })}
+      })} */}
     </main>
   );
 
