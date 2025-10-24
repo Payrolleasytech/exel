@@ -11,7 +11,7 @@ interface ResourceCard {
     publishedDate: string;
 }
 
-const resources: ResourceCard[] = [
+export const resources: ResourceCard[] = [
     {
         id: 1,
         title: "IR35 Changes 2025: What Every Business Needs to Know",

@@ -18,7 +18,7 @@ export default async function page() {
 
     const posts = await getPosts();
     const latest = posts.data[0]
-    // console.log("POSTS, ", latest[0])
+    console.log("POSTS, ", posts)
     return (
       <section className={` grid gap-4 md:gap-8 mt-14 md:mt-18`}>
         <div className=" text-center min-h-20 flex flex-col items-center py-4 justify-center">
@@ -45,7 +45,7 @@ export default async function page() {
 
 
             {/* <SearchBar /> */}
-            <BlogTabs />
+            <BlogTabs blogs={posts?.data} />
 
             {/* <FromBlogSection /> */}
             {/* <BlogPagination currentPage={1} totalPages={10} onPageChange={(page) => console.log("Change to page:", page)} /> */}

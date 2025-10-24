@@ -4,7 +4,7 @@ const baseUrl = process.env.NEXT_STRAPI_API_URL || '';
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: [baseUrl, "tidy-fish-f8bacf1595.media.strapiapp.com"]
+    domains: [baseUrl, "tidy-fish-f8bacf1595.media.strapiapp.com", "res.cloudinary.com", "https://console.cloudinary.com/"]
   }
 };
 
