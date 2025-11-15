@@ -53,7 +53,7 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
             return <h6 id={id} className="scroll-mt-20">{children}</h6>;
         },
         // KEEP YOUR EXISTING COMPONENTS
-        code: ({ node, className, children, ...props }) => {
+        code: ({ className, children, ...props }) => {
             const match = /language-(\w+)/.exec(className || '');
             const isInline = !className?.includes('language-');
 
@@ -69,10 +69,10 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
                 </code>
             );
         },
-        a: ({ node, ...props }) => (
+        a: ({ ...props }) => (
             <a className="text-blue-600 hover:text-blue-800 underline" {...props} />
         ),
-        img: ({ node, ...props }) => (
+        img: ({ ...props }) => (
             <img className="max-w-full h-auto rounded-lg" {...props} />
         ),
     };

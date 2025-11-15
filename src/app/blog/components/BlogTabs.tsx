@@ -16,7 +16,7 @@ const tabs = [
 
 interface BlogTabProps {
     title: string;
-    excerpt: any[]; // Rich text array
+    excerpt: string[]; // Rich text array
     coverImage: {
         url: string;
     };
@@ -47,7 +47,7 @@ export default function BlogTabs({ blogs }: TabsProps) {
     const extractTextFromExcerpt = (excerpt: any[]): string => {
         if (!excerpt || !Array.isArray(excerpt)) return "";
         
-        const extractTextFromNode = (node: any): string => {
+        const extractTextFromNode = (node: { text: string; children: any[]; }): string => {
             if (node.text) return node.text;
             if (node.children && Array.isArray(node.children)) {
                 return node.children.map(extractTextFromNode).join('');

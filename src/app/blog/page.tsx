@@ -2,11 +2,7 @@ import { PageLayout } from "@/util/PageLayout";
 import { Title } from "../about/components/Utils.about";
 import Image from "next/image";
 import { Dot } from "lucide-react";
-import SearchBar from "./components/SearchComponent";
 import BlogTabs from "./components/BlogTabs";
-import BlogPagination from "./components/BlogPagination";
-import { FromBlogSection } from "../services/components/FromOurBlog";
-import TakeActionCard from "../services/components/TakeAction";
 import { getPosts } from "@/services/getPost";
 import {  RichTextRenderer } from "./components/textRenderer";
 import moment from "moment"

@@ -8,9 +8,16 @@ import { MarkdownRenderer } from '../components/MarkdownRenderer';
 import { extractHeadings } from '../utils/extractHeadings';
 import MyNavigator from '../utils/Navigator';
 
+// Updated interface for Next.js 14
+interface Props {
+  params: Promise<{ slug: string }>;
+}
 
-export default async function BlogPostPage({ params }: any) {
-    const post = await getPostBySlug(params?.slug);
+export default async function BlogPostPage({ params }: Props) {
+    // Await the params promise
+    const { slug } = await params;
+    
+    const post = await getPostBySlug(slug);
     const headings = await extractHeadings(post?.content || "");
 
     return (
@@ -24,24 +31,8 @@ export default async function BlogPostPage({ params }: any) {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {/* SIDEBAR */}
-                {/* <div className="col-span-1 rounded-lg p-2 sticky top-20 h-fit">
-          <h5 className="uppercase text-primary font-bold mb-4">
-            Jump to section
-          </h5>
-          <ul className="list-disc list-inside space-y-2 text-sm">
-            {headings.map((h, index) => (
-              <li key={index} className={`ml-${(h.depth - 1) * 2}`}>
-                <a href={`#${h.id}`} className="text-blue-600 hover:underline">
-                  {h.text}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div> */}
                 <MyNavigator headings={headings} />
                     
-
                 {/* MAIN CONTENT */}
                 <div className="col-span-1 md:col-span-2 lg:col-span-3 grid gap-4 lg:gap-6">
                     <div className="w-full grid gap-3">
