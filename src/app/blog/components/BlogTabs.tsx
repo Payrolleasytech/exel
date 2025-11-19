@@ -99,7 +99,7 @@ export default function BlogTabs({ blogs }: TabsProps) {
                 ))}
             </div>
         );
-    };
+    };  
 
     return (
         <div className="w-full border-b">
