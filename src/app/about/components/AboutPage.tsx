@@ -9,7 +9,7 @@ import ReadyToExperience from './ReadyToExperience'
 
 export default function AboutPage() {
   return (
-    <section className={``}>
+    <section className={`my-20`}>
       <HeroSection />
       <OurStory />
       <ValuesSection />

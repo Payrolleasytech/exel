@@ -31,8 +31,8 @@ export default function GetValue({ title, subtitle, cta, items }: GetValueProps)
                 }
                 </div>
             </div>
-            <div className='justify-self-end flex items-center'>
-                <ButtonExel text={cta.text} isPrimary={cta.isPrimary} href={cta.link}/>
+            <div className=' justify-center w-full md:justify-self-end flex items-center'>
+                <ButtonExel  text={cta.text} isPrimary={cta.isPrimary} href={cta.link}/>
             </div>
         </div>
     )

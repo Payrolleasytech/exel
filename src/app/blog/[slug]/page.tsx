@@ -21,7 +21,7 @@ export default async function BlogPostPage({ params }: Props) {
     const headings = await extractHeadings(post?.content || "");
 
     return (
-        <div className="px-4 md:px-8 xl:px-14 2xl:px-20 my-4 md:my-20 py-4 grid gap-4 lg:gap-6">
+        <div className="px-4 md:px-8 xl:px-14 2xl:px-20 my-20 py-4 grid gap-4 lg:gap-6">
             <BlogBreadCrumb service={post?.category} postTitle={post?.title} />
             <Title title={post?.title} className="text-start" />
             <p>
