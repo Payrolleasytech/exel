@@ -1,6 +1,7 @@
 import { ButtonExel } from '@/components/ButtonExel'
 import  { ReusableFAQPlaceholder } from '@/components/placeholders/FAQPlaceholder'
 import { PageLayout } from '@/util/PageLayout'
+import Link from 'next/link'
 import React from 'react'
 
 interface ServicesFaqProps {
@@ -22,7 +23,14 @@ export default function ServicesFaq( { title, subtitle, items }: ServicesFaqProp
 
       </div>
       <div className="mt-6 mx-auto max-w-sm">
-        <ButtonExel text='See More FAQs' />
+        {/* <ButtonExel text='See More FAQs' /> */}
+        <Link href="/faq"
+                    className={`w-full md:w-auto text-center rounded p-2 transition-all duration-300
+    bg-primary text-white hover:bg-primary/90 hover:scale-[1.03] hover:shadow-lg
+  `}
+                >
+                   See More FAQs
+                </Link>
       </div>
     </div>
   )

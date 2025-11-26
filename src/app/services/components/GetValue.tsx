@@ -1,5 +1,6 @@
 import { ButtonExel } from '@/components/ButtonExel';
 import { PageLayout } from '@/util/PageLayout'
+import Link from 'next/link';
 import React from 'react'
 
 interface GetValueProps {
@@ -32,7 +33,11 @@ export default function GetValue({ title, subtitle, cta, items }: GetValueProps)
                 </div>
             </div>
             <div className=' justify-center w-full md:justify-self-end flex items-center'>
-                <ButtonExel  text={cta.text} isPrimary={cta.isPrimary} href={cta.link}/>
+                {/* <ButtonExel  text={cta.text} isPrimary={cta.isPrimary} href={cta.link}/> */}
+                <Link href={"/contact"} className=' flex items-center gap-1 border border-primary p-2 rounded text-primary font-semibold mt-2 cursor-pointer'>
+                {cta.text}
+                </Link>
+
             </div>
         </div>
     )

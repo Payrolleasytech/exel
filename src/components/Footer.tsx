@@ -59,8 +59,8 @@ const Footer = () => {
           </div>
           <div className="flex flex-col">
             <h6 className="text-lg font-semibold mb-2"> Resources</h6>
-            <li className=" list-none"> <Link href={'/services'}> Blog</Link> </li>
-            <li className="list-none"> <Link href={'/about'}> FAQ</Link> </li>
+            <li className=" list-none"> <Link href={'/blog'}> Blog</Link> </li>
+            <li className="list-none"> <Link href={'/faq'}> FAQ</Link> </li>
 
           </div>
           <div className="flex flex-col">

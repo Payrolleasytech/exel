@@ -20,7 +20,7 @@ export default function ServicesYouCanGet({ items, mainTitle }: ServicesYouCanGe
             {items.map((item, index) => (
                 <div key={index} className='flex flex-col items-center text-center p-4 border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 gap-4'>
                     <Image src={item.icon} alt={item.title} width={50} height={50} />
-                    <h3 className='text-xl font-semibold'>{item.title}</h3>
+                    <h4 className='text-xl font-semibold'>{item.title}</h4>
                     <p>{item.description}</p>
                 </div>
             ))}

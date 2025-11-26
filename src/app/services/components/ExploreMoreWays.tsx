@@ -19,7 +19,7 @@ export default function ExploreMoreWays({ title, items }: ExploreMoreWaysProps) 
         <div className="grid grid-cols-1 md:grid-cols-4  gap-4 mt-4">
           {items.map((item, index) => (
             <div key={index} className="border p-4 rounded-md gap-3 grid">
-              <h2 className="font-bold">{item.title}</h2>
+              <h5 className="font-bold">{item.title}</h5>
               <p>{item.description}</p>
               <Link href={"/contact"} className={`flex items-center gap-1 text-blue-400 font-semibold mt-2 cursor-pointer`}>Learn More <i className="fas fa-chevron-right">
                 <ArrowUpRight className=' text-sm' />

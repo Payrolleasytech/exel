@@ -1,4 +1,5 @@
 import { ButtonExel } from '@/components/ButtonExel';
+import Link from 'next/link';
 import React from 'react'
 
 
@@ -18,7 +19,10 @@ export default function TakeActionCard({ title, description, cta }: TakeActionCa
       <h3 className='font-bold text-2xl'>{title}</h3>
       <p>{description}</p>
       <span className="max-w-md mx-auto">
-        <ButtonExel variant={`form`} title={cta?.text} text={cta?.text} className='' />
+        {/* <ButtonExel variant={`form`} title={cta?.text} text={cta?.text} className='' /> */}
+        <Link href={"/contact"} className=' flex items-center gap-1 border border-primary p-2 rounded text-primary font-semibold mt-2 cursor-pointer'>
+                {cta?.text}
+                </Link>
       </span>
      
     </div>
